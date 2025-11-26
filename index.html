@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nếu bạn cần giúp đỡ</title>
+    <!-- Tải Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Cấu hình Tailwind cho font Inter và màu sắc cơ bản -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb; /* Màu nền sáng nhẹ */
+            color: #1e293b; /* Màu chữ tối */
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            font-size: 2.25rem; /* text-4xl */
+            font-weight: 800; /* font-extrabold */
+            color: #0f172a;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50%;
+            height: 4px;
+            background-color: #3b82f6; /* Màu xanh dương chủ đạo */
+            border-radius: 9999px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Thanh Điều Hướng (Header) -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Logo/Tên -->
+            <a href="#hero" class="text-2xl font-bold text-blue-600 hover:text-blue-700 transition duration-300">Thành Lộc</a>
+            
+            <!-- Menu cho desktop -->
+            <nav class="hidden md:flex space-x-6">
+                <a href="#about" class="text-gray-600 hover:text-blue-600 font-medium transition duration-300">Về tôi</a>
+                <a href="#skills" class="text-gray-600 hover:text-blue-600 font-medium transition duration-300">Kỹ năng</a>
+                <a href="#projects" class="text-gray-600 hover:text-blue-600 font-medium transition duration-300">Dự án</a>
+                <a href="#contact" class="px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition duration-300 shadow-lg">Liên hệ</a>
+            </nav>
+
+            <!-- Nút Menu Mobile -->
+            <button id="menu-button" class="md:hidden text-gray-600 hover:text-blue-600 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+
+        <!-- Menu Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <nav class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition duration-300">Về tôi</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition duration-300">Kỹ năng</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition duration-300">Dự án</a>
+                <a href="#contact" class="block w-full text-center px-3 py-2 mt-1 rounded-md text-base font-medium bg-blue-600 text-white hover:bg-blue-700 transition duration-300">Liên hệ</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        
+        <!-- Phần Giới Thiệu (Hero Section) -->
+        <section id="hero" class="py-20 md:py-32 bg-gradient-to-r from-blue-50 to-indigo-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-12">
+                <!-- Nội dung chữ -->
+                <div class="md:w-1/2 text-center md:text-left">
+                    <p class="text-xl text-gray-600 mb-3 animate-pulse">👋 Chào, tôi là</p>
+                    <h1 class="text-6xl sm:text-7xl lg:text-8xl font-extrabold text-gray-900 leading-tight mb-4">
+                        Thành Lộc
+                    </h1>
+                    <p class="text-2xl sm:text-3xl font-light text-blue-600 mb-8">
+                        Nhà phát triển Web | Người sáng tạo nội dung số
+                    </p>
+                    <a href="#projects" class="inline-block px-8 py-3 bg-blue-600 text-white text-lg font-semibold rounded-full hover:bg-blue-700 transition duration-500 shadow-xl transform hover:scale-105">
+                        Xem Dự án
+                    </a>
+                </div>
+
+                <!-- Ảnh đại diện (Placeholder) -->
+                <div class="md:w-1/3 flex justify-center">
+                    <img src="https://f24-zpc.zdn.vn/jpg/2719690274374252830/f980bf6fdaf456aa0fe5.jpg" 
+                         alt="Ảnh chân dung Nguyễn Văn A" 
+                         class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full shadow-2xl border-4 border-white transition duration-500 transform hover:rotate-3">
+                </div>
+            </div>
+        </section>
+
+        <!-- Phần Về Tôi (About Section) -->
+        <section id="about" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title text-center mx-auto">Về Tôi</h2>
+                <div class="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
+                    <p class="mb-4">
+                        Hello bạn 👋  
+Cảm ơn bạn đã ghé qua! Mình là Thành Lộc – dev freelance, chuyên chia sẻ code web và hỗ trợ triển khai theo yêu cầu 😄
+
+                    </p>
+                    <p class="mb-4">
+                        📌 Hiện mình:
+• Có một số code mình share free bạn cứ hỏi thoải mái nha!  
+• Nhận dịch vụ code theo yêu cầu: web tỏ tình, sinh nhật, portfolio, landing page...  
+• Hỗ trợ sửa code, thêm ảnh/nhạc/video cá nhân  
+• Deploy nhanh (VS Code, Acode, Netlify…)
+
+💸 Giá dịch vụ: 50k - 500k  tùy yêu cầu (có tâm – có tầm – có tốc độ 💪)
+
+📥 Nếu cần hỗ trợ, bạn nhắn giúp mình:
+• Cần gì nè (code mới, sửa code, deploy...)  
+• Gói muốn chọn (nếu có)
+                    </p>
+                    <p>
+                        ⏳ Mình sẽ rep sớm nhất có thể (trừ lúc đang code sml 🤣)
+
+Cảm ơn bạn đã quan tâm, chúc một ngày nhiều cảm hứng và ít bug!
+                    <div class="mt-8 text-center">
+                        <a href="#contact" class="text-blue-600 font-semibold hover:text-blue-700 transition duration-300 border-b border-blue-600 pb-1">Hãy cùng nhau tạo ra điều tuyệt vời!</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phần Kỹ Năng (Skills Section) -->
+        <section id="skills" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title text-center mx-auto">Kỹ Năng</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                    
+                    <!-- Kỹ năng 1: Frontend -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1 border-t-4 border-blue-500">
+                        <h3 class="text-xl font-bold mb-3 text-gray-800">Frontend</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li><span class="text-blue-500 font-bold mr-1">•</span> HTML5 & CSS3</li>
+                            <li><span class="text-blue-500 font-bold mr-1">•</span> JavaScript (ES6+)</li>
+                            <li><span class="text-blue-500 font-bold mr-1">•</span> React, Vue.js</li>
+                            <li><span class="text-blue-500 font-bold mr-1">•</span> Tailwind CSS, Bootstrap</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Kỹ năng 2: Backend -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1 border-t-4 border-green-500">
+                        <h3 class="text-xl font-bold mb-3 text-gray-800">Backend</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li><span class="text-green-500 font-bold mr-1">•</span> Node.js, Express</li>
+                            <li><span class="text-green-500 font-bold mr-1">•</span> Python, Django/Flask</li>
+                            <li><span class="text-green-500 font-bold mr-1">•</span> RESTful APIs</li>
+                            <li><span class="text-green-500 font-bold mr-1">•</span> PHP, Laravel</li>
+                        </ul>
+                    </div>
+
+                    <!-- Kỹ năng 3: Databases -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1 border-t-4 border-yellow-500">
+                        <h3 class="text-xl font-bold mb-3 text-gray-800">Cơ sở dữ liệu</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li><span class="text-yellow-500 font-bold mr-1">•</span> PostgreSQL</li>
+                            <li><span class="text-yellow-500 font-bold mr-1">•</span> MongoDB (NoSQL)</li>
+                            <li><span class="text-yellow-500 font-bold mr-1">•</span> MySQL</li>
+                            <li><span class="text-yellow-500 font-bold mr-1">•</span> Redis Caching</li>
+                        </ul>
+                    </div>
+
+                    <!-- Kỹ năng 4: Tools & Devops -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1 border-t-4 border-red-500">
+                        <h3 class="text-xl font-bold mb-3 text-gray-800">Công cụ & DevOps</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li><span class="text-red-500 font-bold mr-1">•</span> Git & GitHub</li>
+                            <li><span class="text-red-500 font-bold mr-1">•</span> Docker</li>
+                            <li><span class="text-red-500 font-bold mr-1">•</span> CI/CD (GitHub Actions)</li>
+                            <li><span class="text-red-500 font-bold mr-1">•</span> AWS/Google Cloud</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Phần Dự Án (Projects Section) -->
+        <section id="projects" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title text-center mx-auto">Dự Án Của Tôi</h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    
+                    <!-- Dự án 1 -->
+                    <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition duration-300 hover:shadow-2xl">
+                        <img src="https://placehold.co/600x400/3b82f6/ffffff?text=Ecommerce+Platform" alt="Ảnh dự án Thương mại điện tử" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Nền tảng Thương mại Điện tử</h3>
+                            <p class="text-gray-600 mb-4">Xây dựng một nền tảng bán hàng trực tuyến đầy đủ tính năng với React, Node.js và MongoDB.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-xs font-medium bg-blue-100 text-blue-800 px-2 py-1 rounded-full">React</span>
+                                <span class="text-xs font-medium bg-green-100 text-green-800 px-2 py-1 rounded-full">Node.js</span>
+                                <span class="text-xs font-medium bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">MongoDB</span>
+                            </div>
+                            <a href="#" class="text-blue-600 font-medium hover:text-blue-800 transition duration-300 flex items-center">
+                                Xem chi tiết 
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Dự án 2 -->
+                    <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition duration-300 hover:shadow-2xl">
+                        <img src="https://placehold.co/600x400/3b82f6/ffffff?text=Realtime+Chat+App" alt="Ảnh dự án Ứng dụng trò chuyện" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Ứng dụng Chat Real-time</h3>
+                            <p class="text-gray-600 mb-4">Một ứng dụng trò chuyện tức thời sử dụng Socket.IO để cập nhật tin nhắn ngay lập tức.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-xs font-medium bg-indigo-100 text-indigo-800 px-2 py-1 rounded-full">Vue.js</span>
+                                <span class="text-xs font-medium bg-pink-100 text-pink-800 px-2 py-1 rounded-full">Socket.IO</span>
+                                <span class="text-xs font-medium bg-red-100 text-red-800 px-2 py-1 rounded-full">Firebase</span>
+                            </div>
+                            <a href="#" class="text-blue-600 font-medium hover:text-blue-800 transition duration-300 flex items-center">
+                                Xem chi tiết 
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Dự án 3 -->
+                    <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition duration-300 hover:shadow-2xl">
+                        <img src="https://placehold.co/600x400/3b82f6/ffffff?text=Data+Visualization+Tool" alt="Ảnh dự án Công cụ trực quan hóa dữ liệu" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Công cụ Trực quan hóa Dữ liệu</h3>
+                            <p class="text-gray-600 mb-4">Phát triển bảng điều khiển (dashboard) tương tác để hiển thị dữ liệu lớn bằng D3.js.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-xs font-medium bg-purple-100 text-purple-800 px-2 py-1 rounded-full">D3.js</span>
+                                <span class="text-xs font-medium bg-teal-100 text-teal-800 px-2 py-1 rounded-full">Python</span>
+                                <span class="text-xs font-medium bg-gray-100 text-gray-800 px-2 py-1 rounded-full">API REST</span>
+                            </div>
+                            <a href="#" class="text-blue-600 font-medium hover:text-blue-800 transition duration-300 flex items-center">
+                                Xem chi tiết 
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- Phần Liên Hệ (Contact Section) -->
+        <section id="contact" class="py-20 bg-blue-600 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-4xl font-extrabold mb-4">Bạn có một dự án?</h2>
+                <p class="text-xl mb-10 opacity-90 max-w-2xl mx-auto">
+                    Tôi luôn sẵn lòng nhận các cơ hội mới. Hãy gửi email hoặc kết nối với tôi qua mạng xã hội.
+                </p>
+                
+                <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+                    <!-- Email Button -->
+                    <a href="mailto:emailcuaban@example.com" class="px-8 py-3 bg-white text-blue-600 text-lg font-semibold rounded-full hover:bg-gray-100 transition duration-300 shadow-xl transform hover:scale-105 flex items-center justify-center">
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-2 4v7a2 2 0 01-2 2H5a2 2 0 01-2-2v-7"></path></svg>
+                        Gửi Email cho tôi
+                    </a>
+                    <!-- Social Links Placeholder -->
+                    <div class="flex space-x-4">
+                        <a href="#" target="_blank" class="text-white hover:text-gray-300 transition duration-300">
+                            <!-- Icon GitHub - Placeholder SVG -->
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12 0C5.372 0 0 5.372 0 12c0 5.308 3.44 9.8 8.204 11.385.6.11.82-.26.82-.577 0-.285-.01-1.04-.015-2.04-3.338.725-4.04-1.61-4.04-1.61-.546-1.385-1.332-1.755-1.332-1.755-1.09-.745.082-.73.082-.73 1.205.084 1.838 1.234 1.838 1.234 1.07 1.83 2.805 1.3 3.49.993.109-.775.419-1.3.762-1.6-2.665-.304-5.466-1.334-5.466-5.93 0-1.309.467-2.38 1.233-3.22-.123-.304-.535-1.524.117-3.176 0 0 1.004-.322 3.284 1.23.957-.266 1.983-.4 3.003-.404 1.02.004 2.046.138 3.003.404 2.28-1.552 3.282-1.23 3.282-1.23.652 1.652.24 2.872.118 3.176.766.84 1.232 1.91 1.232 3.22 0 4.608-2.805 5.62-5.474 5.92.43.37.823 1.102.823 2.22 0 1.604-.015 2.898-.015 3.292 0 .318.21.69.829.576C20.565 21.8 24 17.306 24 12c0-6.628-5.372-12-12-12z" clip-rule="evenodd"/></svg>
+                        </a>
+                        <a href="#" target="_blank" class="text-white hover:text-gray-300 transition duration-300">
+                            <!-- Icon LinkedIn - Placeholder SVG -->
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.75 0-.961.784-1.75 1.75-1.75.966 0 1.75.789 1.75 1.75 0 .96-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.528-4 0v5.604h-3v-11h3v1.765c1.397-2.358 4-2.247 4 1.07v6.165z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            <p>&copy; 2025 Thành Lộc| Danh mục Cá nhân. Được xây dựng với Tailwind CSS.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript để xử lý Menu Mobile và Cuộn mượt -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuButton = document.getElementById('menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navLinks = document.querySelectorAll('#mobile-menu a');
+            
+            // Xử lý Menu Mobile
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Đóng menu khi click vào link trên mobile
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Xử lý Cuộn Mượt (Smooth Scrolling)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    // Chỉ áp dụng cuộn mượt cho các liên kết nội bộ
+                    if (this.getAttribute('href') !== '#') {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        const targetElement = document.querySelector(targetId);
+                        
+                        if (targetElement) {
+                            // Cuộn đến phần tử mục tiêu
+                            // 70px là chiều cao của header
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 70, 
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+
+            // --- XỬ LÝ FORM GỬI EMAIL ---
+            const contactForm = document.getElementById('contactForm');
+            const submitButton = document.getElementById('submitButton');
+            const buttonText = document.getElementById('buttonText');
+            const spinner = document.getElementById('spinner');
+            const messageBox = document.getElementById('messageBox');
+
+            /**
+             * Displays a success or error message.
+             * @param {string} text - The message content.
+             * @param {('success'|'error')} type - The type of message.
+             */
+            const showMessage = (text, type) => {
+                messageBox.textContent = text;
+                // Set Tailwind classes based on type
+                messageBox.className = `p-4 mb-6 text-sm rounded-lg ${type === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`;
+                messageBox.classList.remove('hidden');
+                
+                // Hide after 5 seconds
+                setTimeout(() => {
+                    messageBox.classList.add('hidden');
+                }, 5000);
+            };
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Simple form validation check
+                    if (!this.checkValidity()) {
+                        showMessage("Vui lòng điền đầy đủ và chính xác các trường.", 'error');
+                        return;
+                    }
+
+                    // Disable button and show loading state
+                    submitButton.disabled = true;
+                    buttonText.textContent = 'Đang Gửi...';
+                    spinner.classList.remove('hidden');
+                    messageBox.classList.add('hidden'); // Clear previous message
+
+                    const formData = new FormData(this);
+                    const payload = Object.fromEntries(formData);
+                    
+                    console.log("Dữ liệu gửi đi:", payload);
+
+                    // --- MÔ PHỎNG (SIMULATION) ---
+                    // THAY THẾ PHẦN NÀY BẰNG LỜI GỌI API THỰC TẾ ĐẾN BACKEND CỦA BẠN
+                    
+                    setTimeout(() => {
+                        // Mô phỏng kết quả (90% thành công)
+                        const success = Math.random() < 0.9; 
+                        
+                        // Re-enable button and reset state
+                        submitButton.disabled = false;
+                        buttonText.textContent = 'Gửi Tin Nhắn';
+                        spinner.classList.add('hidden');
+
+                        if (success) {
+                            showMessage('Tin nhắn của bạn đã được gửi thành công! Tôi sẽ liên hệ sớm.', 'success');
+                            contactForm.reset(); // Clear the form on success
+                        } else {
+                            showMessage('Đã xảy ra lỗi khi gửi. Vui lòng thử lại sau.', 'error');
+                        }
+                    }, 2000); // Mô phỏng độ trễ mạng 2 giây
+                });
+            }
+        });
+    </script>
+</body>
+</html>
